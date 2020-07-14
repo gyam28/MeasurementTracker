@@ -8,9 +8,13 @@
 
 import Foundation
 
-struct Tracker: Identifiable {
+class Tracker: Identifiable, ObservableObject {
     let id = UUID()
     
     let name: String
-    var measurements: [Measurement]
+    var measurements = [Measurement]()
+    
+    init(name: String) {
+        self.name = name
+    }
 }

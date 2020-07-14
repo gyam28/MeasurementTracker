@@ -23,7 +23,7 @@ struct InsertAlert: View {
                     .padding(5)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 Button(action: {
-                    let newTracker = Tracker(name: self.newTrackerName, measurements: [Measurement]())
+                    let newTracker = Tracker(name: self.newTrackerName)
                     self.trackers.append(newTracker)
                     self.showAdInsertion = false
                 }) {Text("Insert")}

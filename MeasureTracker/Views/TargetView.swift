@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct TargetView: View {
-    var tracker: Tracker
+    @ObservedObject var tracker: Tracker
     var currentDate = Date()
     @State private var value: Double = 0.0
     
