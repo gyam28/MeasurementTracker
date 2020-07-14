@@ -13,6 +13,10 @@
 		3373EF5224BB6A570024EECD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3373EF5124BB6A570024EECD /* Assets.xcassets */; };
 		3373EF5524BB6A570024EECD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3373EF5424BB6A570024EECD /* Preview Assets.xcassets */; };
 		3373EF5824BB6A570024EECD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3373EF5624BB6A570024EECD /* LaunchScreen.storyboard */; };
+		3373EF6124BB6B0B0024EECD /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3373EF6024BB6B0B0024EECD /* Measurement.swift */; };
+		3373EF6324BB6CC70024EECD /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3373EF6224BB6CC70024EECD /* Tracker.swift */; };
+		3373EF6824BE3C240024EECD /* TargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3373EF6724BE3C240024EECD /* TargetView.swift */; };
+		3373EF6A24BE3D580024EECD /* InsertAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3373EF6924BE3D580024EECD /* InsertAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		3373EF5424BB6A570024EECD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3373EF5724BB6A570024EECD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3373EF5924BB6A570024EECD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3373EF6024BB6B0B0024EECD /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
+		3373EF6224BB6CC70024EECD /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
+		3373EF6724BE3C240024EECD /* TargetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetView.swift; sourceTree = "<group>"; };
+		3373EF6924BE3D580024EECD /* InsertAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,8 @@
 		3373EF4A24BB6A550024EECD /* MeasureTracker */ = {
 			isa = PBXGroup;
 			children = (
+				3373EF6424BE3BD80024EECD /* Views */,
+				3373EF5F24BB6AD20024EECD /* Model */,
 				3373EF4B24BB6A550024EECD /* AppDelegate.swift */,
 				3373EF4D24BB6A550024EECD /* SceneDelegate.swift */,
 				3373EF4F24BB6A550024EECD /* ContentView.swift */,
@@ -73,6 +83,24 @@
 				3373EF5424BB6A570024EECD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3373EF5F24BB6AD20024EECD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3373EF6024BB6B0B0024EECD /* Measurement.swift */,
+				3373EF6224BB6CC70024EECD /* Tracker.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3373EF6424BE3BD80024EECD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3373EF6724BE3C240024EECD /* TargetView.swift */,
+				3373EF6924BE3D580024EECD /* InsertAlert.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,7 +176,11 @@
 			files = (
 				3373EF4C24BB6A550024EECD /* AppDelegate.swift in Sources */,
 				3373EF4E24BB6A550024EECD /* SceneDelegate.swift in Sources */,
+				3373EF6324BB6CC70024EECD /* Tracker.swift in Sources */,
+				3373EF6A24BE3D580024EECD /* InsertAlert.swift in Sources */,
+				3373EF6124BB6B0B0024EECD /* Measurement.swift in Sources */,
 				3373EF5024BB6A550024EECD /* ContentView.swift in Sources */,
+				3373EF6824BE3C240024EECD /* TargetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
