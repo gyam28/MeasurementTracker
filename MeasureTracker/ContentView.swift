@@ -13,9 +13,9 @@ struct ContentView: View {
     
     @State private var showAdInsertion = false
     
-    @State var trackers: [Tracker] = [Tracker(name: "Arm", measurements: [Measurement]()),
-                               Tracker(name: "Chest", measurements: [Measurement]()),
-                                Tracker(name: "Hips", measurements: [Measurement]())]
+    @State var trackers: [Tracker] = [Tracker(name: "Arm"),
+                               Tracker(name: "Chest"),
+                                Tracker(name: "Hips")]
     
     var body: some View {
         NavigationView {
