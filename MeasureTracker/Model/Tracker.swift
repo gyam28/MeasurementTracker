@@ -14,7 +14,8 @@ class Tracker: Identifiable, ObservableObject {
     let name: String
     var measurements = [Measurement]()
     
-    init(name: String) {
+    init(name: String, measurements: [Measurement] = [Measurement]()) {
         self.name = name
+        self.measurements = measurements
     }
 }

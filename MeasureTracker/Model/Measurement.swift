@@ -13,7 +13,9 @@ import Foundation
     case inch
  }
  
- struct Measurement {
+ struct Measurement: Identifiable {
+    let id = UUID()
+    
     let value: Double
     let unit: Units
     let date: Date

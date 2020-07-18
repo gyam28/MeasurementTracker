@@ -11,25 +11,31 @@ import SwiftUI
 struct TargetView: View {
     @ObservedObject var tracker: Tracker
     var currentDate = Date()
-    @State private var value: Double = 0.0
+    @State private var value: String = ""
+    @State private var measurements = [Measurement]()
     
-    init(tracker: Tracker) {
+    init(tracker: Tracker, measurements: [Measurement]) {
         self.tracker = tracker
-        
+        self.measurements = measurements
     }
     
     var body: some View {
-        NavigationView {
+        NavigationView  {
             VStack {
                 HStack(alignment:.firstTextBaseline){
-                    TextField("insert value...", value: $value, formatter: NumberFormatter())
+                    TextField("insert value...", text: $value)
                         .keyboardType(.numberPad)
                         .padding(.top, 10)
                         .padding(10)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     Button(action: {
-                        let measurement = Measurement(value: self.value, unit: .cm, date: Date())
-                        self.tracker.measurements.append(measurement)
+                        if let numericValue = Double(self.value) {
+                            let measurement = Measurement( value: numericValue, unit: .cm, date: Date())
+                            self.tracker.measurements.append(measurement)
+                            print(self.tracker.measurements)
+                            
+                        }
+           
                     }) {
                         Text("+")
                             .frame(width: 30, height: 30)
@@ -41,12 +47,21 @@ struct TargetView: View {
                     }.buttonStyle(PlainButtonStyle())
                 }
                 
-                Divider()
-                Text("\(currentDate)")
+////                Divider()
+                List(measurements) { measure in
+                    Text("\(measure.value) \(measure.unit.rawValue)").background(Color.green)
+                }.background(Color.red)
+                List {
+                    Text("something")
+                }
+                
+                
                 //saves empty space
-                Spacer()
+//                Spacer()
                     
-                }.navigationBarTitle(Text("\(tracker.name) - Measurements History"), displayMode: .inline)        }
+                }.navigationBarTitle(Text("\(tracker.name) - Measurements History"), displayMode: .inline)
+            
+        }
             
         
     }
@@ -55,3 +70,9 @@ struct TargetView: View {
 
 
 
+
+struct TargetView_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
+}

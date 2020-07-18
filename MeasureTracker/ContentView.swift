@@ -13,7 +13,7 @@ struct ContentView: View {
     
     @State private var showAdInsertion = false
     
-    @State var trackers: [Tracker] = [Tracker(name: "Arm"),
+    @State var trackers: [Tracker] = [Tracker(name: "Arm", measurements: [Measurement(value: Double(32), unit: .cm, date: Date())]),
                                Tracker(name: "Chest"),
                                 Tracker(name: "Hips")]
     
@@ -24,7 +24,7 @@ struct ContentView: View {
                 VStack {
                     HStack{
                         List (trackers ) { tracker in
-                            NavigationLink(destination: TargetView(tracker: tracker) ) {
+                            NavigationLink(destination: TargetView(tracker: tracker, measurements: tracker.measurements) ) {
                                 Text(tracker.name)
                                 Spacer()
                                 Text("104")
@@ -60,12 +60,6 @@ struct ContentView: View {
             
            
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
 
