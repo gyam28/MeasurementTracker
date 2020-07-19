@@ -12,11 +12,11 @@ struct TargetView: View {
     @ObservedObject var tracker: Tracker
     var currentDate = Date()
     @State private var value: String = ""
-    @State private var measurements = [Measurement]()
+    @State private var measurements: [Measurement]
     
     init(tracker: Tracker, measurements: [Measurement]) {
         self.tracker = tracker
-        self.measurements = measurements
+        _measurements = State(initialValue: measurements)
     }
     
     var body: some View {
@@ -32,10 +32,11 @@ struct TargetView: View {
                         if let numericValue = Double(self.value) {
                             let measurement = Measurement( value: numericValue, unit: .cm, date: Date())
                             self.tracker.measurements.append(measurement)
+                            self.measurements.append(measurement)
                             print(self.tracker.measurements)
                             
                         }
-           
+                        
                     }) {
                         Text("+")
                             .frame(width: 30, height: 30)
@@ -43,26 +44,24 @@ struct TargetView: View {
                             .foregroundColor(.white)
                             .clipShape(Circle())
                             .padding(.trailing, 10 )
-                            
+                        
                     }.buttonStyle(PlainButtonStyle())
                 }
                 
-////                Divider()
-                List(measurements) { measure in
-                    Text("\(measure.value) \(measure.unit.rawValue)").background(Color.green)
-                }.background(Color.red)
-                List {
-                    Text("something")
+                Divider()
+                List (measurements) { measure in
+                    Text(String(format: "%.2f", measure.value) + "  \(measure.unit.rawValue)")
                 }
+               
                 
                 
                 //saves empty space
-//                Spacer()
-                    
-                }.navigationBarTitle(Text("\(tracker.name) - Measurements History"), displayMode: .inline)
+                //                Spacer()
+                
+            }.navigationBarTitle(Text("\(tracker.name) - Measurements History"), displayMode: .inline)
             
         }
-            
+        
         
     }
     
@@ -70,9 +69,3 @@ struct TargetView: View {
 
 
 
-
-struct TargetView_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
-    }
-}

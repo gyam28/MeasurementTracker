@@ -13,7 +13,7 @@ struct ContentView: View {
     
     @State private var showAdInsertion = false
     
-    @State var trackers: [Tracker] = [Tracker(name: "Arm", measurements: [Measurement(value: Double(32), unit: .cm, date: Date())]),
+    @State var trackers: [Tracker] = [Tracker(name: "Arm"),
                                Tracker(name: "Chest"),
                                 Tracker(name: "Hips")]
     
